@@ -3,18 +3,19 @@
  */
 public class ClassDependency {
 
-	public final boolean isAlive() {
+  public final boolean isAlive() {
 
-		// do something
+    // do something
 
-		return false;
+    return false;
 
-	}
-	public static boolean isExist() {
+  }
 
-		// do something
+  public static boolean isExist() {
 
-		return false;
+    // do something
 
-	}
+    return false;
+
+  }
 }

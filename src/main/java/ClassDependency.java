@@ -1,3 +1,5 @@
+import com.itiancai.unitexample.model.Product;
+
 /**
  * Created by pansen on 15/4/23.
  */
@@ -17,5 +19,10 @@ public class ClassDependency {
 
     return false;
 
+  }
+
+  public Product getProduct(String s){
+
+    return new Product(s,s);
   }
 }

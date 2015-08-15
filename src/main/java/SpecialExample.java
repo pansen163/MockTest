@@ -1,3 +1,5 @@
+import com.itiancai.unitexample.model.Product;
+
 import java.io.File;
 
 /**
@@ -5,9 +7,21 @@ import java.io.File;
  */
 public class SpecialExample {
 
+  //模拟注入服务
+  ClassDependency classDependency=new ClassDependency();
+
   //mock普通方法
   public boolean callArgumentInstance(File file) {
     return file.exists();
+  }
+
+  //mock依赖服务
+  public boolean callDependencyService(String s){
+    Product product = classDependency.getProduct(s);
+    if(s.equals(product.getWeight())) {
+      return true;
+    }
+    return false;
   }
 
   //mock方法内部new出来的对象
@@ -39,6 +53,17 @@ public class SpecialExample {
   public String callSystemStaticMethod(String str) {
     return System.getProperty(str);
 
+  }
+
+  public boolean mix(String path){
+    File file = new File(path);
+    if(!file.exists()){
+      return false;
+    }
+    if(!classDependency.isAlive()){
+      return false;
+    }
+    return true;
   }
 
 }
